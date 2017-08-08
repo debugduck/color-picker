@@ -7,6 +7,10 @@ class ColorPicker(object):
 	@cherrypy.expose
 	def index(self):
 		return open('templates/color_picker.html')
+
+	@cherrypy.expose
+	def rgb(self):
+		return open('templates/rgb_sliders.html')
 	
 if __name__ == '__main__':
 	conf = {

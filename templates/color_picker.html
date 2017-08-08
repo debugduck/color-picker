@@ -10,8 +10,26 @@
 	<title> Color Wizard </title>
 	<meta charset="UTF-8">
 		<style> 
-		.body {
-			padding-top: 150px;
+
+		.color_boxes {
+			padding-left: 15px;
+		}
+		.color_wheel {
+			padding-top: 5px;
+			padding-left: 60px;
+		}
+		#choice_canvas {
+			background-color: #ffffff;
+		}
+		.foot {
+			padding-left: 600px;
+		}
+		.foot_bottom {
+			padding-left: 60px;
+		}
+		.jumbotron_title {
+			padding-left: 10px;
+			padding-bottom: 20px;
 		}
 		#color_canvas {
 			cursor: crosshair;
@@ -25,12 +43,12 @@
 			margin-top: 5px;
 			margin-left: 10px;
 		}
+		#preview_canvas {
+			background-color: #ffffff;
+		}
 		#rgb_sliders {
 			margin-top: 50px;
 			margin-bottom: 50px;
-		}
-		#rgb_c {
-			margin-bottom: 15px;
 		}
 		#top_nav {
 			background-color: #ececec;
@@ -45,7 +63,8 @@
 		  <div class="container-fluid">
 			<div class="tabs">
 				<ul class="nav nav-pills">
-				  <li role="presentation" class="active"><a href="">Color Picker</a></li>
+				  <li role="presentation" class="active"><a href="/index">Color Picker</a></li>
+				  <li role="presentation"><a href="/rgb">RGB Sliders</a></li>
 				  <li role="presentation"><a href="">Schemes</a></li>
 				  <li role="presentation"><a href="">Mixer</a></li>
 				  <li role="presentation"><a href="">Paint</a></li>
@@ -54,63 +73,51 @@
 		  </div>
 		</nav>
 
-		<!-- Top grid displaying the color wheel and grayscale gradient -->
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--3-col"></div>
-			<div class="mdl-cell mdl-cell--3-col">
-			<h4> Color </h4>
-			<canvas id="color_canvas" width="400" height="400"></canvas>
-			</div>
-			<div class="mdl-cell mdl-cell--2-col">
-			<h4> Grayscale </h4>
-			<canvas id="grayscale_canvas" width="100" height="400"></canvas>
-			</div>
-			<div class="mdl-cell mdl-cell--3-col">
-				<!-- Default Slider -->
-				<div id="rgb_sliders">
-					<h4>RGB Scale</h4>
-					<h6>Red: <output id="red_output">0</output></h6>
-					<input class="mdl-slider mdl-js-slider" id="red_input" type="range"
-					  min="0" max="255" value="0" tabindex="0">
-					<!-- Default Slider -->
-					<h6>Green: <output id="green_output">0</output></h6>				
-					<input class="mdl-slider mdl-js-slider" id="green_input" type="range"
-					  min="0" max="255" value="0" tabindex="0">
-					<!-- Default Slider -->
-					<h6>Blue: <output id="blue_output">0</output></h6>
-					<input class="mdl-slider mdl-js-slider" id="blue_input" type="range"
-					  min="0" max="255" value="0" tabindex="0">
-				</div>
-				<div id="rgb_c">
-					<canvas id="rgb_canvas" width="450" height="30" style="border: 1px solid black;"></canvas>
-				</div>
-				<div id="rgb_h">
-					<input type="text" name="rgb_hex" id="rgb_hex">
-				</div>
-			</div>
-		</div>
-		
-		<!-- Bottom grid displaying the preview and selection boxes -->
-		</div>
+		<div class="color_wheel">
+
+
+			<!-- Top grid displaying the color wheel and grayscale gradient -->
 			<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--3-col"></div>
-			<div class="mdl-cell mdl-cell--2-col">
-			<h6>Preview Color:</h6>
-				<canvas id="preview_canvas" width="50" height="50" style="border: 1px solid black;"></canvas>
-				<input type="text" name="hex_preview" id="hex_preview">
-			</div>
-			<div class="mdl-cell mdl-cell--2-col">
-				<h6>Selected Color:</h6>
-				<canvas id="choice_canvas" width="50" height="50" style="border: 1px solid black;"></canvas>
-				<div id = "hex_submit">
-					<input type="text" name="hex_choice" id="hex_choice">
-					<button class="mdl-button mdl-js-button mdl-button--raised" onclick="submitHex('hex_choice')" id="hex_submit">
-					  Submit
-					</button>
+
+				<div class="mdl-cell mdl-cell--3-col">
+				
+				<div class="jumbotron jumbotron-fluid">
+					<div class="jumbotron_title">
+					<h2 class="display-3">Color Picker</h2>
+					<h6><p class="lead">Hover over the color wheel to see its hex code. Click to select a value!</p></h6>
+					<hr class="my-4">
+						<div class="color_boxes">
+							<h6>Preview Color:</h6>
+							<canvas id="preview_canvas" width="50" height="50" style="border: 1px solid black;"></canvas>
+							<output type="text" name="hex_preview" id="hex_preview">#ffffff</output>
+
+							<h6>Selected Color:</h6>
+							<canvas id="choice_canvas" width="50" height="50" style="border: 1px solid black;"></canvas>
+							<output type="text" name="hex_choice" id="hex_choice">#ffffff</output>
+						</div>
+					</div>
 				</div>
-			</div>		
+
+			
+				</div>
+				<div class="mdl-cell mdl-cell--3-col">
+				<h4> Color </h4>
+				<canvas id="color_canvas" width="400" height="400"></canvas>
+				</div>
+				<div class="mdl-cell mdl-cell--2-col">
+				<h4> Grayscale </h4>
+				<canvas id="grayscale_canvas" width="100" height="400"></canvas>
+				</div>
+			</div>
 		</div>
-		<!-- END PAGE CONTENT -->
+
+		<hr class="my-4">
+		<div class="foot">
+			<footer>
+			  <div class="foot_top"><h6><small>Color Wizard - Random color project/experiment exploring color</small></h6></div>
+			  <div class="foot_bottom"><h6><small><a>Copyright 1999-2050 by Claire Cecil.</small></h6></div>
+			</footer>
+		</div>
 				
 		<script src="js/color_picker_logic2.js"></script>
 	</body>
