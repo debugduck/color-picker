@@ -10,15 +10,16 @@
 	<title> Color Wizard </title>
 	<meta charset="UTF-8">
 		<style> 
+		.body {
+			padding-top: 150px;
+		}
 		#color_canvas {
 			cursor: crosshair;
 			display: block;
-			background-color: #ffffff;
 		}
 		#grayscale_canvas {
 			cursor: crosshair;
 			display: block;
-			background-color: #ffffff;
 		}
 		#hex_submit {
 			margin-top: 5px;
@@ -31,12 +32,31 @@
 		#rgb_c {
 			margin-bottom: 15px;
 		}
-		</style>		
+		#top_nav {
+			background-color: #ececec;
+		}
+		</style>
+
+
 	</head>
 	<body>
+
+		<nav class="navbar navbar-default" id="top_nav">
+		  <div class="container-fluid">
+			<div class="tabs">
+				<ul class="nav nav-pills">
+				  <li role="presentation" class="active"><a href="">Color Picker</a></li>
+				  <li role="presentation"><a href="">Schemes</a></li>
+				  <li role="presentation"><a href="">Mixer</a></li>
+				  <li role="presentation"><a href="">Paint</a></li>
+				</ul>
+			</div>
+		  </div>
+		</nav>
+
 		<!-- Top grid displaying the color wheel and grayscale gradient -->
 		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--1-col"></div>
+			<div class="mdl-cell mdl-cell--3-col"></div>
 			<div class="mdl-cell mdl-cell--3-col">
 			<h4> Color </h4>
 			<canvas id="color_canvas" width="400" height="400"></canvas>
@@ -73,7 +93,7 @@
 		<!-- Bottom grid displaying the preview and selection boxes -->
 		</div>
 			<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--1-col"></div>
+			<div class="mdl-cell mdl-cell--3-col"></div>
 			<div class="mdl-cell mdl-cell--2-col">
 			<h6>Preview Color:</h6>
 				<canvas id="preview_canvas" width="50" height="50" style="border: 1px solid black;"></canvas>
