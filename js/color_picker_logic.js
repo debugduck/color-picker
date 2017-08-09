@@ -6,75 +6,87 @@
 **************************
 **/
 
-function init() {
-	// Sets up the color wheel and grayscale images
-	var wheel = setImage("static/color_wheel_resized.png", 'color_canvas');
-	var scale = setImage("static/black_white_gradient_resized4.png", 'grayscale_canvas');
-
-	// TODO: fix the slow loading that causes the photos to load only when cached
-	// Handles all of the actions that the event listeners are in charge of
-	wheel.onload = updateColorBoxes(wheel, 'color_canvas', 'preview_canvas', 'hex_preview', 'choice_canvas', 'hex_choice');
-	scale.onload = updateColorBoxes(scale, 'grayscale_canvas', 'preview_canvas', 'hex_preview', 'choice_canvas', 'hex_choice');
-}
-
-window.onload = init();
-
-// **UTILITY FUNCTIONS**
-
-// Creates a new image object with the given path
-function setImage(img_src, canvas) {
-	var img = new Image();
-	img.crossOrigin = "anonymous";
-	img.src = img_src;
-	var ctx = document.getElementById(canvas).getContext('2d');
-	ctx.drawImage(img, 0, 0, img.width, img.height);
-	return img;
-}
-
-//Sets up an image and returns an array with the current pixel's r, g, b, a information
-function getPixelFromImage(ctx) {
-	var x = event.clientX - ctx.canvas.offsetLeft;
-	var y = event.clientY - ctx.canvas.offsetTop;
-	var img = ctx.getImageData(x, y, 1, 1);
-	var px = img.data;
-	return px;
-}
-
-// Takes a decimal value for the red, green, and blue values
-// Returns a hex code for the color made from the given RGB values
-function getHex(r, g, b) {
-	// Get the base 16 representation of the r, g, or b pixel
-	// Put these values together to get the hex value
-	return ("#"+pad(decToHex(r))+pad(decToHex(g))+pad(decToHex(b)));
-}
-
-// Returns a base 16 representation of a given base 10 number
-function decToHex(num) {
-	return (num.toString(16)).slice(-2);
-}
+// Variable set-up
+var wheel = new Image();
+wheel.crossOrigin = "anonymous";
+var hex = "";
+wheel.src = "static/color_wheel_resized.png";
+var scale = new Image();
+scale.crossOrigin = "anonymous";
+scale.src = "static/black_white_gradient_resized.png";
 
 // **EVENT LISTENERS**
 
-// Handles the creation and updating of the color and hex value boxes
-function updateColorBoxes(img, canvas, prev_canvas, prev_hex, choice_canvas, choice_hex) {
-	// Set up the image on its corresponding canvas
-	var ctx = document.getElementById(canvas).getContext('2d');
-	//ctx.drawImage(img, 0, 0, img.width, img.height);
+// Handles the actions for the color wheel
+wheel.onload = function() {
+	// Draw the image onto the canvas
+	var ctx = document.getElementById('color_canvas').getContext('2d');
+	ctx.drawImage(wheel, 0, 0, wheel.width, wheel.height);
 	
-	// Adds event listeners to update the hex value and color box
-	makeEventListener(ctx, prev_canvas, prev_hex, 'mousemove');	
-	makeEventListener(ctx, choice_canvas, choice_hex, 'click');
+	// Listens for hovering over the canvas
+	ctx.canvas.addEventListener('mousemove', function(e) {
+		// Get current pixel and its hex code
+		var pixel = getPixel(e, ctx);
+		hex = getHex(pixel);
+		
+		// Update the preview boxes
+		updateBoxes('preview_canvas', 'hex_preview', hex);
+	});
+	
+	// Listens for a color change click and updates the selected color
+	ctx.canvas.addEventListener('click', function(e) {
+		updateBoxes('choice_canvas', 'hex_choice', hex);
+	});
 }
 
-// Create an event listener for clicking or hovering with the given HTML elements
-function makeEventListener(ctx, canvas, hex_input, opt) {
-	ctx.canvas.addEventListener(opt, function(event) {
-		var pixel = getPixelFromImage(ctx);
-		var hex = getHex(pixel[0], pixel[1], pixel[2]);
-		// FILL HOVER OR CLICK BOXES (depending on the value of opt)
-		var previewColor = document.getElementById(canvas).style.background = hex;
-		var previewBox = document.getElementById(hex_input).value = hex;
-	});	
+// Handles the actions for the grayscale canvas
+scale.onload = function() {
+	// Draw the image onto the canvas	
+	var ctx = document.getElementById('grayscale_canvas').getContext('2d');
+	ctx.drawImage(scale, 0, 0, scale.width, scale.height);
+	
+	// Listens for hovering over the canvas
+	ctx.canvas.addEventListener('mousemove', function(e) {
+		// Get current pixel and its hex code		
+		var pixel = getPixel(e, ctx);
+		hex = getHex(pixel);
+		
+		// Update the preview boxes
+		updateBoxes('preview_canvas', 'hex_preview', hex);
+	});
+	
+	// Listens for a color change click and updates the selected color
+	ctx.canvas.addEventListener('click', function(e) {
+		updateBoxes('choice_canvas', 'hex_choice', hex);
+	});
+}
+
+// **UTILITY FUNCTIONS**
+
+// Updates the preview box and hex code box with the new color value
+function updateBoxes(color, code, newValue) {
+		document.getElementById(color).style.background = newValue;
+		document.getElementById(code).value = newValue;
+}
+
+// Takes an array of r, g, and b values and returns the hex code for the color
+function getHex(imgData) {
+	// Get the base 16 representation of the r, g, or b pixel
+	// get the last two digits with slice
+	var r = ("0" + (imgData[0]).toString(16)).slice(-2);
+	var g = ("0" + (imgData[1]).toString(16)).slice(-2);
+	var b = ("0" + (imgData[2]).toString(16)).slice(-2);
+	hex = "#"+r+g+b;
+	return hex;
+}
+
+// Takes an event and a context and extracts the corresponding pixel RGB values to an array
+function getPixel(e, ctx) {
+	var x = e.clientX - ctx.canvas.offsetLeft;
+	var y = e.clientY - ctx.canvas.offsetTop;
+	var color_img = ctx.getImageData(x, y, 1, 1);
+	var pixel = color_img.data;
+	return pixel;
 }
 
 
@@ -106,11 +118,11 @@ function pad(numStr){
 // Extracts a submitted value from a given element id
 function submitHex(id) {
     var value = document.getElementById(id).value;
-	//alert("hi.")
 	return value;
 }
 
 // **EVENT LISTENERS**
+// Listens for changes to the red, green, and blue sliders
 
 red_input.addEventListener('input', function () {
 	red_output.innerHTML = red_input.value;
