@@ -1,16 +1,22 @@
+import os, os.path
+import random
+import string
 import cherrypy
-import sys
-import os
+from jinja2 import Environment, FileSystemLoader
 
+env = Environment( loader=FileSystemLoader('templates' ))
 
-class ColorPicker(object):
-	@cherrypy.expose
-	def index(self):
-		return open('templates/color_picker.html')
+class Main(object):
 
 	@cherrypy.expose
 	def rgb(self):
-		return open('templates/rgb_sliders.html')
+	        template = env.get_template('rgb_sliders.html')
+		return template.render()
+
+	@cherrypy.expose
+	def index(self):
+	        template = env.get_template('color_picker.html')
+		return template.render()
 	
 if __name__ == '__main__':
 	conf = {
@@ -31,4 +37,4 @@ if __name__ == '__main__':
 		    'tools.staticdir.dir': 'js'
 		}
 	}
-	cherrypy.quickstart(ColorPicker(), '/', conf)
+	cherrypy.quickstart(Main(), '/', conf)

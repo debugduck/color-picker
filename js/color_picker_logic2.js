@@ -13,7 +13,7 @@ var hex = "";
 wheel.src = "static/color_wheel_resized.png";
 var scale = new Image();
 scale.crossOrigin = "anonymous";
-scale.src = "static/black_white_gradient_resized4.png";
+scale.src = "static/black_white_gradient_resized.png";
 
 // **EVENT LISTENERS**
 

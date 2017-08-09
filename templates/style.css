@@ -1,0 +1,59 @@
+#choice_canvas {
+	background-color: #ffffff;
+}
+.color_boxes {
+	padding-left: 15px;
+}
+#color_canvas {
+	cursor: crosshair;
+	display: block;
+}
+.color_wheel {
+	padding-top: 5px;
+	padding-left: 60px;
+}
+.container {
+	max-width: 500px;
+	padding-top: 100px;
+}
+.foot {
+	padding-left: 600px;
+}
+.foot_bottom {
+	padding-left: 60px;
+}		
+#grayscale_canvas {
+	cursor: crosshair;
+	display: block;
+}
+.jumbotron_heading {
+	color: black;
+}
+#hex_submit {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+.jumbotron_title {
+	padding-left: 10px;
+	padding-bottom: 20px;
+}
+#preview_canvas {
+	background-color: #ffffff;
+}
+#rgb_c {
+	margin-bottom: 15px;
+	margin-left: 600px;
+}
+#rgb_h {
+	margin-bottom: 15px;
+	margin-left: 700px;
+}
+#rgb_sliders {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 250px;
+	margin-right: 250px;
+}
+#top_nav {
+	background-color: #ececec;
+}
