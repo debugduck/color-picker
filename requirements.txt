@@ -1,3 +1,2 @@
 cherrypy
 uwsgi
-jinja2
