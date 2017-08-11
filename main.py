@@ -1,6 +1,5 @@
-import os, os.path
-import random
-import string
+import os.path
+
 import cherrypy
 from jinja2 import Environment, FileSystemLoader
 
