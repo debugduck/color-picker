@@ -1,42 +1,63 @@
+#!/usr/bin/python
+'''
+color-picker server
+'''
+import argparse
 import os.path
 
 import cherrypy
 from jinja2 import Environment, FileSystemLoader
 
-env = Environment( loader=FileSystemLoader('templates' ))
+ENV = Environment(loader=FileSystemLoader('templates'))
 
 class Root(object):
+    '''
+    root object of cherrypy
+    '''
+    @cherrypy.expose
+    def index(self):
+        '''
+        index page
+        '''
+        template = ENV.get_template('color_picker.html')
+        return template.render()
 
-	@cherrypy.expose
-	def rgb(self):
-	        template = env.get_template('rgb_sliders.html')
-		return template.render()
+    @cherrypy.expose
+    def rgb(self):
+        '''
+        rgb sliders page
+        '''
+        template = ENV.get_template('rgb_sliders.html')
+        return template.render()
 
-	@cherrypy.expose
-	def index(self):
-	        template = env.get_template('color_picker.html')
-		return template.render()
+def main():
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument("--port", type=int, help="Port to attach to")
+    parser.add_argument("--host", help="Host to serve from")
+    args = parser.parse_args()
+    
+    CONF = {
+        '/': {
+            'tools.sessions.on': True,
+            'tools.staticdir.root': os.path.abspath(os.getcwd())
+        },
+        '/templates': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': 'templates'
+        },
+        '/static': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': 'images'
+        },
+        '/js': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': 'js'
+        },
+        'global': {
+            'server.socket_host': args.host,
+            'server.socket_port': args.port
+        },
+    }
+    cherrypy.quickstart(Root(), '/', CONF)
 
-
-conf = {
-	'/': {
-	    'tools.sessions.on': True,
-	    'tools.staticdir.root': os.path.abspath(os.getcwd())
-	},
-	'/templates': {
-	    'tools.staticdir.on': True,
-	    'tools.staticdir.dir': 'templates'
-	},
-	'/static': {
-	    'tools.staticdir.on': True,
-	    'tools.staticdir.dir': 'images'
-	},
-	'/js': {
-	    'tools.staticdir.on': True,
-	    'tools.staticdir.dir': 'js'
-	},
-		'global': {
-			'server.socket_host': '0.0.0.0',
-			'server.socket_port': 80},
-}
-cherrypy.quickstart(Root(), '/', conf)
+main()
