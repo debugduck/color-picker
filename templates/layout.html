@@ -8,11 +8,11 @@
 <html>
   <head>
 	<ul class="nav nav-tabs">
-		<li><a href="index">Color Picker</a></li>
-		<li><a href="rgb">RGB Sliders</a></li>
-		<li><a href="">Schemes</a></li>
-		<li><a href="">Mixer</a></li>
-		<li><a href="">Paint</a></li>
+		<li id="picker-tab"><a href="index" onClick="pickerActive()">Color Picker</a></li>
+		<li id="rgb-tab"><a href="rgb" onClick="rgbActive()">RGB Sliders</a></li>
+		<li id="schemes-tab"><a href="">Schemes</a></li>
+		<li id="mixer-tab"><a href="">Mixer</a></li>
+		<li id="paint-tab"><a href="">Paint</a></li>
 	</ul>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Color Wizard </title>
@@ -38,7 +38,6 @@
 		</footer>
 	</div>
 				
-    <script src="js/color_picker_logic.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>
