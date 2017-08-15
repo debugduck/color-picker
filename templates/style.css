@@ -1,3 +1,6 @@
+.box-one {
+	margin-left: 20px;
+}
 #choice_canvas {
 	background-color: #ffffff;
 }
@@ -37,6 +40,9 @@
 	padding-left: 10px;
 	padding-bottom: 20px;
 }
+.prev_box {
+	padding-right: 20px;
+}
 #preview_canvas {
 	background-color: #ffffff;
 }
@@ -53,6 +59,9 @@
 	margin-bottom: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
+}
+.sel_box {
+	padding-left: 20px;
 }
 #top_nav {
 	background-color: #ececec;
