@@ -30,6 +30,14 @@ class Root(object):
         template = ENV.get_template('rgb_sliders.html')
         return template.render()
 
+    @cherrypy.expose
+    def schemes(self):
+        '''
+        schemes page
+        '''
+        template = ENV.get_template('schemes.html')
+        return template.render()
+
 def main():
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument("--port", type=int, help="Port to attach to")
@@ -40,6 +48,10 @@ def main():
         '/': {
             'tools.sessions.on': True,
             'tools.staticdir.root': os.path.abspath(os.getcwd())
+        },
+    	'/favicon.ico': {
+            'tools.staticfile.on': True,
+            'tools.staticfile.filename': '/home/debugduck/GitHub/color-picker/images/duck.png'
         },
         '/templates': {
             'tools.staticdir.on': True,
