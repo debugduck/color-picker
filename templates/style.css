@@ -1,3 +1,6 @@
+.body {
+	padding-top: 10px;
+}
 .box-one {
 	margin-left: 20px;
 }
@@ -8,6 +11,11 @@
 	padding-left: 15px;
 }
 #color_canvas {
+	cursor: crosshair;
+	display: block;
+}
+#color-picker-grid {
+	margin-top: 20px;
 	cursor: crosshair;
 	display: block;
 }
