@@ -10,13 +10,17 @@
 <br >
 
 <style>
+#cards {
+  display: inline-flex;
+}
 .color-picker {
   padding-top: 10px;
   padding-left: 10px;
 }
 #gradient-box {
   cursor: crosshair;
-  width: 100%;
+  width: 100%
+  margin: 0;
 }
 .gradient-div {
   padding-top: 10px;
@@ -56,13 +60,12 @@
 
 <div class="color-picker">
     <div class="demo-grid-3 mdl-grid">
-      <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet">
-		<canvas id=gradient-box width=460 height=460></canvas>
+      <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet" id="gradient-cell">
+		<canvas id="gradient-box" class="gradient-canvas" width="460" height="480"></canvas>
 		<br>
 		<br>
-		<input class="mdl-slider mdl-js-slider" type="range" min="0" max="359" value="0" id=HUE tabindex="0">
-
-						<div class="prev_box">
+		<input class="mdl-slider mdl-js-slider" type="range" min="0" max="359" value="0" id="HUE" tabindex="0">
+						<div class="prev_box" id="under-canvas">
 							<h6>Preview Color:</h6>
 							<canvas id="preview_canvas" width="100" height="25" style="border: 1px solid black;"></canvas>
 							<output type="text" name="hex_preview" id="hex_preview">#ffffff</output>
@@ -70,7 +73,7 @@
 
       </div>
 
-      <div id="cards">
+      <div class="cards" id="cards-body">
 
 
 
