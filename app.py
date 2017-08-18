@@ -42,7 +42,7 @@ def main():
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument("--port", type=int, help="Port to attach to")
     parser.add_argument("--host", help="Host to serve from")
-    parser.add_argument("--favicon", help="Path to the favicon directory")
+    parser.add_argument("--favicon", help="Path to the favicon (must be an absolute path)")
     args = parser.parse_args()
     
     CONF = {

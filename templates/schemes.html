@@ -6,14 +6,40 @@
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 <link rel="stylesheet" type="text/css" href="templates/style.css">
 
+<div id="schemes-toppage">
 
+	<div id="schemes-heading">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="jumbotron_title">
+				<h2 class="jumbotron_heading">Color Scheme Generator</h2>
+				<h6><p class="lead">Select the number of colors that you want in your color scheme, and the color generator will give you that many random colors. Eventually, I'd like the color schemes to be generated in a certain pattern instead of being created randomly.</p></h6>
+			</div>
 
-	<div class="box-one">
-		<h6>Color 1:</h6>
-		<canvas id="scheme_canvas_one" width="50" height="50" style="border: 1px solid black;"></canvas>
-		<output type="text" name="hex_scheme_one" id="hex_scheme_one">#ffffff</output>
+			<div id="schemes-input>
+				<div class="mdl-selectfield mdl-js-selectfield" id="schemes-input">
+					<select class="mdl-selectfield__select" id="num-schemes" name="num-schemes">
+						<option value=""></option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+					<button class="mdl-button mdl-button--raised mdl-button--accent" onclick="submitNum()">Submit</button>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 
+<div class="scheme-cards" id="schemes-body">
+
+</div>
 
 <script src="js/schemes_logic.js"></script>
 {% endblock %}

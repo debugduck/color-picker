@@ -4,50 +4,73 @@
 .box-one {
 	margin-left: 20px;
 }
-#choice_canvas {
-	background-color: #ffffff;
+#cards {
+  display: inline-flex;
 }
 .color_boxes {
 	padding-left: 15px;
 }
-#color_canvas {
-	cursor: crosshair;
-	display: block;
+.color-picker {
+  padding-top: 10px;
+  padding-left: 10px;
 }
 #color-picker-grid {
 	margin-top: 20px;
 	cursor: crosshair;
 	display: block;
 }
-.color_wheel {
-	padding-top: 5px;
-	padding-left: 60px;
+.demo-card-wide.mdl-card {
+  width: 256px;
+  padding-bottom: 10px;
+  position: relative;
 }
-.container {
-	max-width: 500px;
-	padding-top: 100px;
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background-color:#f1dddd;
 }
-.foot {
-	padding-left: 600px;
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
 }
-.foot_bottom {
-	padding-left: 60px;
-}		
-#grayscale_canvas {
-	cursor: crosshair;
-	display: block;
+#gradient-box {
+  cursor: crosshair;
+  width: 100%
+  margin: 0;
+}
+.gradient-div {
+  padding-top: 10px;
+  padding-left: 55px;
 }
 .jumbotron_heading {
 	color: black;
-}
-#hex_submit {
-	margin-top: 5px;
-	margin-left: 10px;
 }
 .jumbotron_title {
 	padding-left: 10px;
 	padding-bottom: 20px;
 }
+.mdl-cell {
+  padding: 5px 0;
+  color: #424242;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.mdl-cell--2-col {
+  width: 8.33333%;
+  padding-left: 20px;
+}
+.mdl-grid {
+  padding: 0!important;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.mdl-selectfield {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.mdl-selectfield__select {
+  padding-right: 20px;
+}		
 .prev_box {
 	padding-right: 20px;
 }
@@ -67,6 +90,15 @@
 	margin-bottom: 50px;
 	margin-left: 250px;
 	margin-right: 250px;
+}
+#scheme-cards {
+  display: inline-flex;
+}
+#schemes-input {
+  display: flex;
+}
+#schemes-toppage {
+  display: flex;
 }
 .sel_box {
 	padding-left: 20px;

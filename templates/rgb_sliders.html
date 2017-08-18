@@ -6,6 +6,17 @@
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 <link rel="stylesheet" type="text/css" href="templates/style.css">
 
+<div id="schemes-heading">
+	<div class="jumbotron jumbotron-fluid">
+		<div class="jumbotron_title">
+		<h2 class="jumbotron_heading">Color Scheme Generator</h2>
+		<h6><p class="lead">Create custom colors by changing the red, green and blue values on the sliders below. Your new color will be previewed at the bottom, along with its corresponding hex value.</p></h6>
+		</div>
+
+
+	</div>
+</div>
+
 <!-- Default Slider -->
 <div id="rgb_sliders">
 	<h4>RGB Scale</h4>
@@ -21,9 +32,11 @@
 	<input class="mdl-slider mdl-js-slider" id="blue_input" type="range"
 	  min="0" max="255" value="0" tabindex="0">
 </div>
+
 <div id="rgb_c">
 	<canvas id="rgb_canvas" width="450" height="30" style="border: 1px solid black;"></canvas>
 </div>
+
 <div id="rgb_h">
 	<input type="text" name="rgb_hex" id="rgb_hex">
 </div>

@@ -70,6 +70,12 @@ draw();
 
 // **EVENT LISTENERS**
 
+// Display the hue as it changes
+HUE.addEventListener('input', function () {
+	hue_value.innerHTML = HUE.value;
+	document.getElementById('hue_value').value = hue_value;
+}
+
 	
 // Listens for hovering over the canvas
 ctx.canvas.addEventListener('mousemove', function(e) {

@@ -28,7 +28,7 @@ function pad(numStr){
 // Extracts a submitted value from a given element id
 function submitHex(id) {
     var value = document.getElementById(id).value;
-	return value;
+    return value;
 }
 
 // **EVENT LISTENERS**
