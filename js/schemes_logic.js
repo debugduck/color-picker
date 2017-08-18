@@ -8,6 +8,9 @@ var current_div = 0;
 function submitNum(element) {
 	var count = document.getElementById('num-schemes').value;
 	console.log("in submitNum: " + count);
+	if(card_count > 0) {
+		removeAll();
+	}
 	for(i = 1; i <= count; i++) {
 		generateCard();
 	}
@@ -64,3 +67,14 @@ function removeCard(element) {
 		window.location.reload();		
 	}
 }
+
+function removeAll() {
+	for(i = 0; i <= id_count; i++) {
+		console.log("deleting card: " + i);
+		if(document.getElementById("scheme-card-" + i) != null) {
+			document.getElementById("scheme-card-" + i).remove();
+		}
+	}
+}
+
+		
