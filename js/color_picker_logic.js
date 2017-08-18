@@ -89,7 +89,7 @@ ctx.canvas.addEventListener('mousemove', function(e) {
 
 // Listens for a color change click and updates the selected color
 ctx.canvas.addEventListener('click', function(e) {
-	if(id_count % 3 === 0 || current_div === 0) {
+	if(id_count % 2 === 0 || current_div === 0) {
 		current_div += 1;
 		document.getElementById("cards-body").innerHTML += "<div class=\"cards\"id=\"div-"+ current_div + "\"></div>";
 	}
@@ -157,6 +157,11 @@ function removeCard(element) {
 }
 
 // Clears all color cards from the page
-function clearCards() {
-	window.location.reload();
+function removeAll() {
+	for(i = 0; i <= id_count; i++) {
+		console.log("deleting card: " + i);
+		if(document.getElementById("card-" + i) != null) {
+			document.getElementById("card-" + i).remove();
+		}
+	}
 }

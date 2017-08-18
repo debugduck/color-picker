@@ -9,7 +9,24 @@
 <div class="color-picker">
 
 	<div class="demo-grid-3 mdl-grid">
-
+		<div class="mdl-cell mdl-cell--3-col mdl-cell--hide-phone ">
+		
+			<div class="jumbotron jumbotron-fluid">
+				<div class="jumbotron_title">
+					<h2 class="jumbotron_heading">Color Picker</h2>
+					<h6><p class="lead">Hover over the color wheel to see its hex code. Click to select a value!</p></h6>
+					<hr class="my-4">
+					<div class="color_boxes">
+						<div class="prev_box">
+							<h6>Preview Color:</h6>
+							<canvas id="preview_canvas" width="50" height="50" style="border: 1px solid black;"></canvas>
+							<output type="text" name="hex_preview" id="hex_preview">#ffffff</output>
+						</div>
+						<h6><p class="lead">Once you select a color, a color swatch will appear so that you can save your color history.</p></h6>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet" id="gradient-cell">
 			<canvas id="gradient-box" class="gradient-canvas" width="460" height="480"></canvas>
 			<br>
@@ -19,17 +36,10 @@
 				<div id="hue-stuff">
 					<h6>Hue: <output id="hue_value">0</output></h6>
 				</div>
-				<div class="prev_text" id="preview-stuff">
-					<h6>Preview Color:</h6>
-				</div>
-				<div class="preview_values" id="preview-values">
-					<canvas id="preview_canvas" width="100" height="25" style="border: 1px solid black;"></canvas>
-					<output type="text" name="hex_preview" id="hex_preview">#ffffff</output>
-				</div>
 			</div>
 			<input class="mdl-slider mdl-js-slider" type="range" min="0" max="359" value="0" id="HUE" tabindex="0">
 			<div class="clear-cards-button">
-				<button class="mdl-button mdl-button--raised mdl-button--accent" onclick="clearCards()">Clear Cards</button>
+				<button class="mdl-button mdl-button--raised mdl-button--accent" onclick="removeAll()">Clear Cards</button>
 			</div>
 		</div>
 
