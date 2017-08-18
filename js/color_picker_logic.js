@@ -1,5 +1,6 @@
 document.getElementById("picker-tab").className = 'active';
 
+// TODO:
 // Make a queue to store the IDs of the removed cards
 // When adding a new card, check to see if the queue
 // has any IDs. If it does, do NOT change the 
@@ -18,31 +19,6 @@ var canvas = document.getElementById('gradient-box'),
 	treq;
 
 var grid_cell = document.getElementById('gradient-cell');
-
-// Resize the canvas and re-draw the gradient to fit
-function resize() {
-	console.log("in resize");
-	console.log("canvas width: " + ctx.canvas.width);
-	console.log("canvas height: " + ctx.canvas.height);
-	// try resizing the canvas again
-	// but this time, re-draw the gradient too!
-	// i suspect this will get rid of the issue
-	// of the colors going all weird upon window resizing
-	if(window.innerWidth < ctx.canvas.width) {
-		ctx.canvas.width  = ctx.canvas.width - 0.9583333333333334;
-	} else {
-		ctx.canvas.width  = ctx.canvas.width + 0.9583333333333334;
-	}
-	if(window.innerHeight < ctx.canvas.height) {
-		ctx.canvas.height  = ctx.canvas.height - 0.9583333333333334;
-	} else {
-		ctx.canvas.height = ctx.canvas.height + 0.9583333333333334;
-	}
-	console.log("changed width: " + ctx.canvas.width);
-	console.log("changed height: " + ctx.canvas.height);
-	draw();
-}
-window.addEventListener("resize", resize);
 
 function draw() {
     console.log("in draw()...");
@@ -73,8 +49,32 @@ draw();
 // Display the hue as it changes
 HUE.addEventListener('input', function () {
 	hue_value.innerHTML = HUE.value;
-	document.getElementById('hue_value').value = hue_value;
-});
+}, false);
+
+window.addEventListener("resize", resize);
+// Resize the canvas and re-draw the gradient to fit
+function resize() {
+	console.log("in resize");
+	console.log("canvas width: " + ctx.canvas.width);
+	console.log("canvas height: " + ctx.canvas.height);
+	// try resizing the canvas again
+	// but this time, re-draw the gradient too!
+	// i suspect this will get rid of the issue
+	// of the colors going all weird upon window resizing
+	if(window.innerWidth < ctx.canvas.width) {
+		ctx.canvas.width  = ctx.canvas.width - 0.9583333333333334;
+	} else {
+		ctx.canvas.width  = ctx.canvas.width + 0.9583333333333334;
+	}
+	if(window.innerHeight < ctx.canvas.height) {
+		ctx.canvas.height  = ctx.canvas.height - 0.9583333333333334;
+	} else {
+		ctx.canvas.height = ctx.canvas.height + 0.9583333333333334;
+	}
+	console.log("changed width: " + ctx.canvas.width);
+	console.log("changed height: " + ctx.canvas.height);
+	draw();
+}
 
 	
 // Listens for hovering over the canvas
