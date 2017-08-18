@@ -71,11 +71,15 @@
 .mdl-selectfield__select {
   padding-right: 20px;
 }		
-.prev_box {
+.prev_text {
 	padding-right: 20px;
+	padding-left: 140px;
 }
 #preview_canvas {
 	background-color: #ffffff;
+}
+.preview_values {
+	padding-top: 27px;
 }
 #rgb_c {
 	margin-bottom: 15px;
@@ -105,4 +109,10 @@
 }
 #top_nav {
 	background-color: #ececec;
+}
+#under-canvas-details {
+	display: inline-flex;
+}
+.under-canvas-details {
+	padding-left: 20px;
 }

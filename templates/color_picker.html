@@ -14,13 +14,20 @@
 			<canvas id="gradient-box" class="gradient-canvas" width="460" height="480"></canvas>
 			<br>
 			<br>
-			<h6>Hue: <output id="hue_value">0</output></h6>
-			<input class="mdl-slider mdl-js-slider" type="range" min="0" max="359" value="0" id="HUE" tabindex="0">
-			<div class="prev_box" id="under-canvas">
-				<h6>Preview Color:</h6>
-				<canvas id="preview_canvas" width="100" height="25" style="border: 1px solid black;"></canvas>
-				<output type="text" name="hex_preview" id="hex_preview">#ffffff</output>
+
+			<div class="under-canvas-details" id="under-canvas-details">
+				<div id="hue-stuff">
+					<h6>Hue: <output id="hue_value">0</output></h6>
+				</div>
+				<div class="prev_text" id="preview-stuff">
+					<h6>Preview Color:</h6>
+				</div>
+				<div class="preview_values" id="preview-values">
+					<canvas id="preview_canvas" width="100" height="25" style="border: 1px solid black;"></canvas>
+					<output type="text" name="hex_preview" id="hex_preview">#ffffff</output>
+				</div>
 			</div>
+			<input class="mdl-slider mdl-js-slider" type="range" min="0" max="359" value="0" id="HUE" tabindex="0">
 		</div>
 
 		<div class="cards" id="cards-body">
