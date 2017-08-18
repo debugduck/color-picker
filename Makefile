@@ -4,4 +4,4 @@ PORT=80
 nopt:
 	true
 run:
-	python app.py --host $(HOST) --port $(PORT)
+	python app.py --host $(HOST) --port $(PORT) --favicon $(FAVICON)
