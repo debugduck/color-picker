@@ -155,3 +155,8 @@ function removeCard(element) {
 	}
 
 }
+
+// Clears all color cards from the page
+function clearCards() {
+	window.location.reload();
+}

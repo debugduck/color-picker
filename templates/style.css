@@ -7,6 +7,10 @@
 #cards {
   display: inline-flex;
 }
+.clear-cards-button {
+	padding-top: 20px;
+	padding-left: 20px;
+}
 .color_boxes {
 	padding-left: 15px;
 }
