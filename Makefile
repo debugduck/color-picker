@@ -1,6 +1,6 @@
 HOST=0.0.0.0
 PORT=80
-FAVICON=/home/color-picker/images/'duck.png'
+FAVICON=/root/color-picker/images/'duck.png'
 
 nopt:
 	true
